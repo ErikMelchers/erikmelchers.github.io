@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dijkstra's Algorithm Visualization</title>
+  <style>
+    #canvas {
+      border: 1px solid black;
+    }
+  </style>
+</head>
+<body>
+  <label for="Building"></label>
+  <select id="buildings", onchange="updatePoints()">
+    <!-- buidlings -->
+  </select>
+  <br><br>
+  <label for="startPoint">Start Point:</label>
+  <select id="startPoint">
+    <!-- Options will be populated dynamically via JavaScript -->
+  </select>
+  <br><br>
+  <label for="endPoint">End Point:</label>
+  <select id="endPoint">
+    
+    <!-- Options will be populated dynamically via JavaScript -->
+  </select>
+  <br><br>
+  
+  <button onclick="printSelectedPath()">Print selected Paths</button>
+  <button onclick="findShortestPath()">Find Shortest Path</button>
+  <br><br>
+  <canvas id="canvas" width="400" height="300"></canvas>
+  <script src="dijkstra.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
