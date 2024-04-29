@@ -360,6 +360,7 @@ var k = { // KOGOD coords
   var KSTAIRS3point = new Point2(['STAIRS3','TSTAIRS3','2STAIRS3', 'B7', 'B4'], k);
   var KB4point = new Point2(['B4', 'STAIRS3', 'B3', 'B5'], k);
   var KE2point = new Point2(['E2', 'B7', 'B5'], k);
+  var KB5point = new Point2(['B5', 'E2', 'B4'], k);
   var KB3point = new Point2(['B3', 'B4', 'B2', '118b', '175'], k);
   var KB2point = new Point2(['B2', 'B3', '174', '118a', 'B1'], k);
   var K118bpoint = new Point2(['118b', 'B3'], k);
@@ -504,7 +505,7 @@ var k = { // KOGOD coords
     K2A1point, K2STAIRS1point, K2A3point, K207point, K206point, K2A4point, K205point, K203point, 
     K2A5point, K201Cpoint, K204point, K201Apoint, K2A6point, K200point, K2A9point, K201point, 
     K2B2point, K232point, K273point, K2B4point, K231point, K230point, K2B6point, K229point, 
-    K228point, K2B8point, K227Apoint, K226point, K225point, K227Bpoint, K2B10point, KE1point
+    K228point, K2B8point, K227Apoint, K226point, K225point, K227Bpoint, K2B10point, KE1point, KB5point
   ]
   
   
