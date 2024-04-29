@@ -96,7 +96,7 @@ function findShortestPath() {
     const startPoint = whatBuilding.find(point => point.name === startPointName);
     const endPoint = whatBuilding.find(point => point.name === endPointName);
   
-    const shortestPath = dijkstra(startPoint, endPoint, points);
+    const shortestPath = dijkstra(startPoint, endPoint, whatBuilding);
     
     console.log(shortestPath);
     if (shortestPath) {
