@@ -25,6 +25,7 @@ var d = { //Don Myers buidling Cooords
     "115a": [870, 250],
     "112G": [935, 309],
     "STAIRS3": [825, 240],
+    "2STAIRS3": [825,240],
     "ELEVATOR2": [830, 275],
     "101": [116, 255],
     "115b": [902, 261],
@@ -32,6 +33,7 @@ var d = { //Don Myers buidling Cooords
     "121": [1078, 262],
     "119": [1034, 264],
     "STAIRS2": [626, 275],
+    "2STAIRS2": [626, 275],
     "103": [206, 279],
     "114": [1026, 288],
     "108": [300, 286],
@@ -39,6 +41,7 @@ var d = { //Don Myers buidling Cooords
     "116": [1058, 288],
     "112a": [908, 293],
     "STAIRS4": [1084, 302],
+    "2STAIRS4": [1084, 302],
     "ELEVATOR1": [626, 304],
     "111b": [573, 309],
     "112C": [954, 308],
@@ -53,6 +56,7 @@ var d = { //Don Myers buidling Cooords
     "108A": [908, 348],
     "104": [108, 356],
     "STAIRS1": [141, 358],
+    "2STAIRS1": [141, 358],
     "160": [180, 365],
     "108B": [909, 363],
     "108G": [833, 368],
@@ -182,7 +186,7 @@ var d = { //Don Myers buidling Cooords
       //--------Second Floor Points---------------------------------------------------------
 
       var E1point = new Point2(['E1','101', 'A1'], d);
-      var E2point = new Point2(['E2','A6', 'STAIRS2', 'ELEVATOR1'],d);
+      var E2point = new Point2(['E2','A6', '2STAIRS2', 'ELEVATOR1'],d);
       var E3point = new Point2(['E3','A8'],d);
       
       var A1point = new Point2(['A1', 'E1', '101', '102', '103', '104', 'STAIRS1', '160', 'A2'],d);
@@ -198,11 +202,14 @@ var d = { //Don Myers buidling Cooords
       var B2point = new Point2(['B2', 'B1', 'B3', '106E', '106F', '106G', '106H', '106I', '106N', '106O', '106P', '106Q'],d);
       var B3point = new Point2(['B3', 'B2', '106A', '106B', '106C',  '106D', '106E', '106F', '106Q'],d);
       
-      var STAIRS1point = new Point2(['STAIRS1', 'A1', '2E1'],d);
-      var STAIRS2point = new Point2(['STAIRS2', 'A6', 'E2', '2E2'], d);
-      var STAIRS3point = new Point2(['STAIRS3', 'A8', '2E3'], d);
-      var STAIRS4point = new Point2(['STAIRS4', 'C8', '2E4'],d);
-    
+      var STAIRS1point = new Point2(['STAIRS1','2STAIRS1', 'A1'],d);
+      var twoSTAIRSpoint = new Point2(['2STAIRS1', 'STAIRS1', '2E1'],d);
+      var STAIRS2point = new Point2(['STAIRS2', '2STAIRS2','A6'], d);
+      var twoSTAIRS2point = new Point2(['2STAIRS2', 'STAIRS2','E2'],d);
+      var STAIRS3point = new Point2(['STAIRS3','2STAIRS3' ,'A8'], d);
+      var twoSTAIRS3point =new Point2(['2STAIRS3', 'STAIRS3', '2E3'],d);
+      var STAIRS4point = new Point2(['STAIRS4','2STAIRS4' ,'C8'],d);
+      var twoSTAIRS4point = new Point2(['2STAIRS4', 'STAIRS4', '2E4'],d)
     
       var ELEVATOR1point = new Point2(['ELEVATOR1', 'A6', 'E2'],  d);
       var ELEVATOR2point = new Point2(['ELEVATOR2', 'A8'],  d);
@@ -288,7 +295,7 @@ var R2C5point = new Point2(['2C5', '2C4', '208L', '2C6'],d);
 var R208Lpoint = new Point2(['208L', '2C5'],d);
 var R210point = new Point2(['210', '2C1', '2C3'],d);
 var R2C3point = new Point2(['2C3', '2C1', '210', '263', 'ELEVATOR2', '2E3', '2C6'],d);
-var R2E3point = new Point2(['2E3', '2C3', 'STAIRS3', 'ELEVATOR2', '263'],d);
+var R2E3point = new Point2(['2E3', '2C3', '2STAIRS3', 'ELEVATOR2', '263'],d);
 var R263point = new Point2(['263', '2E3', '2C3'],d);
 var R2C6point = new Point2(['2C6', '2C3', '2C5', '208J', '208K', '212a', '215', '217', '2C7'],d);
 var R208Jpoint = new Point2(['208J', '2C6'],d);
@@ -496,7 +503,7 @@ var points = [
   R206Hpoint, R206Jpoint,
   R206Kpoint, R206Lpoint,
   R206Mpoint, R206Npoint, R209point ,
-  R213apoint, R213bpoint, R262point ,
+  R213apoint, R213bpoint, R262point , twoSTAIRSpoint,twoSTAIRS2point,twoSTAIRS3point,twoSTAIRS4point,
 ]
 
 var build1 = new Building('Don Myers', points)
