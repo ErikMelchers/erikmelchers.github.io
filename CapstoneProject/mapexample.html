@@ -1127,6 +1127,7 @@
           console.log(results);
           console.log(results[0].place_id);
           //lastDest.push(results[0])
+          if(validateDestinationInput(results[0])){
           if (status === google.maps.places.PlacesServiceStatus.OK) {
             results.travelModeEnum = 'WALKING';
             const label = getNextMarkerLabel();
@@ -1148,8 +1149,6 @@
                     getCommutesInfo(response, destinationConfig);
 
                     console.log("building reached");
-                    let building = results[0].name.split(" ")[0];
-                    handleIndoor(building);
                     // callbackCounter++;
                     // Update commutes panel and click event objects after getting
                     // direction to all destinations.
@@ -1177,11 +1176,16 @@
                 });
             }
           }
+          else {
+            window.alert("Invalid input");
+          }
+        }
+
         );
         
       }
 
-
+      /*
       function handleIndoor(building) {
         let url;
         let rNum;
@@ -1540,34 +1544,125 @@
         "206A","206B","206C","206D","206E","206F","206G","206H","206J","206K","206L","206M","206N","209","213",
         "262","201","202","204","202A","202B","202C","204A","204B","204C","260","207","261","272"];
         let extraRoomsDMTI = ["213", "212", "112", "111"];
-        let validRoomsKogod = [];
-        let extraRoomsKogod = ["118"];
+        let validRoomsKogod = ["174","175","A10","A8","A7","A9","A6","A11","B8","B9","E3","S2","S3","S1",
+        "B7","196","B3","A5","B1","A4","A3","A2","B2","B4","A1","S4","B5","E1","E2","110","112","113","111",
+        "114","122","115","116","109","173","RR1","RR2","106","100","108","107","105","104","102",
+        "120","101","B10","B11","212","210","216","218","219","222","208","209","214","223","213","221","217",
+        "220","204","206","230","228","273","207","225","203","200","201","231","229","226","206","205","232",
+        "2A8","2B5","2B9","2B7","2A2","2A7","2B3","2B11","ELEVATOR","2C3","2C4","2C5","2C2","2B1","STAIRS2",
+        "STAIRS1","STAIRS3","2A1","STAIRS4","2C1","2B12","T27","T23","T25","T21","T31","T37","T41","T43",
+        "T45","T47","T33","T35","T61","T62","T36","T28","T30","T32","T34","T24","T20","T26","T22","T42",
+        "T46","T48","T44","T39","T57","T18","T17","T38","T75","T55","T78","T10","T06","T01","T05","T03","T12",
+        "T14","T16","T51","T56","T54","T94","T13","T71","T02","T08","T09","T11","T15","T50","T04","TE1","TE3",
+        "TC1","TC2","TA11","TA8","TA9","TA10","TA7","TB9","TB8","TB7","TA6","TB6","TC3","TB5","TC4","TSTAIRS1",
+        "TA5","TSTAIRS3","TA4","TC5","TA3","C10","TA1","TB3","TB2","TA2","TC9","TB1","TB4","TC8","TC6","TC7",
+        "TSTAIRS2","TB10"];
+        let extraRoomsKogod = ["118","122","115","103","215","233","234","201","227","T59","T60","T58","T57",
+        "T56"];
+        let validRoomsKerwin = ["111","109","112","105","103","109","114","108","E2","STAIRS1","A1","A2","B1",
+        "C1","C2","B4","A3","C3","A5","A4","B3","C4","C5","B2","STAIRS3","STAIRS2","2B10","2B8","2B9","2B12",
+        "2B7","2B13","2C1","2B11","2C6","2C3","2C5","2C4","2A4","2A3","2A2","2A1","2B6","2C8","2C7","2B4",
+        "2B5","2B1","2B2","2B3","2C2","2C1","A9","2STAIRS3","212","211","210","266","213","214","268","216",
+        "264","218","222","220","224","215","219","217","221","201","206","259","257","262","260","258","256",
+        "254","276","255","253","251","245","235","243","237","233","226","228","249","247","241","239","233",
+        "231","246","244","240","242","238","236","232","234","250","248","2C11","2STAIRS1","2A5","2A6","2A7",
+        "2A8","2ELEVATOR","3STAIRS1","3C6","3A1","3A2","3A3","3A4","3A6","3C2","3C1","3C3","3C4","3C5","3A5","3A7",
+        "3B8","3B9","3STAIRS3","3B3","3B5","3A8","3B1","3B4","3B2","3B6","3B7","311","312","313","350","347","346",
+        "341","342","343","344","345","349","339","340","310","314","316","301","307","308","318","317","306","325",
+        "348","331","327","329","323","335","333","321","338","326","334","332","330","328","337","336","324","322",
+        "T14","T13","T22","T23","t8","T11","T9","T7","T10","TSTAIRS3","TA3","TB4","TB1","TC1","TA1","TB2","TB3","TA1",
+        "TSTAIRS4","TSTAIRS1","TB5","TB6"];
+        let extraRoomsKerwin = ["106","104","113","192","204","202","203","205","281","237","303","302","304","305",
+        "300","331","T5","T4","T2","T1","T3","T6"];
+        console.log(destinationToAdd.place_id);
+        console.log(DMTIid);
         if (destinationToAdd.place_id == DMTIid){
           let validRoom = false;
           let roomNum;
           while(validRoom!=true){
-          roomNum = document.getElementById("rnum");
-          if(validRooms.indexOf(roomNum)!=-1){
+          roomNum = document.getElementById("rnum").value;
+          console.log(roomNum);
+          if(validRoomsDMTI.indexOf(roomNum)!=-1){
             validRoom = true;
           }
-          }
-          if(extraRooms.indexOf(roomNum) != -1){
+          else if(extraRoomsDMTI.indexOf(roomNum) != -1){
             roomNum+="a";
+            validRoom = true;
           }
+          else{
+            window.alert("Invalid Room");
+          }
+        }
           console.log(typeof roomNum);
-          console.log(roomNum);
-          document.getElementById("donbutton").style.display='block';
+          console.log(roomNum)
           var params2 = new URLSearchParams();
           params2.append("destination", JSON.stringify(roomNum));
           console.log(destinationToAdd);
-          var url = "donfirst.html?" +params.toString();
-          document.getElementById("donbutton").href=url;
+          var url = "donfirst.html?" +params2.toString();
+          document.getElementById("inside-button").addEventListener('click', () => {
+            window.location.href = url;
+          });
+        }
+        if (destinationToAdd.place_id == KerwinId){
+          let validRoom = false;
+          let roomNum;
+          while(validRoom!=true){
+          roomNum = document.getElementById("rnum").value;
+          console.log(roomNum);
+          if(validRoomsKerwin.indexOf(roomNum)!=-1){
+            validRoom = true;
+          }
+    
+          else if(extraRoomsKerwin.indexOf(roomNum) != -1){
+            roomNum+="a";
+            validRoom = true;
+          }
+          else{
+            window.alert("Invalid Room");
+          }
+        }
+          console.log(typeof roomNum);
+          console.log(roomNum)
+          var params2 = new URLSearchParams();
+          params2.append("destination", JSON.stringify(roomNum));
+          console.log(destinationToAdd);
+          var url = "SPAFLOOR1LABELLED.html?" +params2.toString();
+          document.getElementById("inside-button").addEventListener('click', () => {
+            window.location.href = url;
+          });
+        }
+        if (destinationToAdd.place_id == KogodId){
+          let validRoom = false;
+          let roomNum;
+          while(validRoom!=true){
+          roomNum = document.getElementById("rnum").value;
+          if(validRoomsKogod.indexOf(roomNum)!=-1){
+            validRoom = true;
+          }
+    
+          else if(extraRoomsKogod.indexOf(roomNum) != -1){
+            roomNum+="a";
+            validRoom = true;
+          }
+          else{
+            window.alert("Invalid Room");
+          }
+        }
+          console.log(typeof roomNum);
+          console.log(roomNum)
+          var params2 = new URLSearchParams();
+          params2.append("destination", JSON.stringify(roomNum));
+          console.log(destinationToAdd);
+          var url = "Kogod-Floor1-Labelled.html?" +params2.toString();
+          document.getElementById("inside-button").addEventListener('click', () => {
+            window.location.href = url;
+          });
         }
 
         return isValidInput;
       }
 
-      /**
+      /*
        * Removes polylines and markers of currently active directions.
        */
       function removeDirectionsFromMapView(destination) {

@@ -3,7 +3,7 @@ let button2;
 
 function setup() {
 	createCanvas(1152, 648);
-	bg = loadImage('https://i.postimg.cc/QdB7KHwK/Don-Myers-First-Floor-Rooms-Labelled.png');
+	bg = loadImage('https://i.postimg.cc/TYnXCLFT/Don-Myers-First-Floor-Rooms-Labelled.png');
 	button1 = createButton('To Second Floor');
     button1.position(800, 100);
   	button1.mousePressed(goToLink1);
