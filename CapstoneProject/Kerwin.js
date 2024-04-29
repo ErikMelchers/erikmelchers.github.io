@@ -235,7 +235,7 @@ var s = {
     "T7": [1057, 937],
     "T10": [706, 938],
     "TSTAIRS3": [428, 179],
-    "TSTAIRS3": [1294, 179],
+    "TSTAIRS2": [1294, 179],
     "TA3": [428, 314],
     "TB4": [886, 423],
     "TB1": [645, 451],
@@ -281,7 +281,7 @@ var S302apoint = new Point2(['302a', '3C1', '3A6'], s);
 var S307point = new Point2(['307', '3C1', '3A6'], s);
 var SCA6point = new Point2(['CA6', '307', '302', '3STAIRS1', '300a', '3A5'], s);
 var S300apoint = new Point2(['300a', '3A6', '3A5'], s);
-var S3STAIRS1point = new Point2(['3STAIRS1', '3A6', '3STAIRS1'], s);
+var S3STAIRS1point = new Point2(['3STAIRS1', '3A6', '2STAIRS1'], s);
 var S3A5point = new Point2(['3A5', '300a', '3A6', '3A2'], s);
 var S3A2point = new Point2(['3A2', '3A5', '3A1', '345', '34', '3A3'], s);
 var S3A1point = new Point2(['3A1', '3A2', '349', '350', '347', '346'], s);
@@ -331,7 +331,7 @@ var S322point = new Point2(['322', '321'], s);
 var S3B8point = new Point2(['3B8', '3B7', '3B9'], s);
 
 //------------------------Floor 2------------------------------------
-var S2STAIRS3point = new Point2(['2STAIRS3', '2C1', '1STAIRS3'], s);
+var S2STAIRS3point = new Point2(['2STAIRS3', '2C1', 'STAIRS3', '3STAIRS3'], s);
 var S2C1point = new Point2(['2C1', '2STAIRS3', '2B5', '281A', '2C2'], s);
 var S2C2point = new Point2(['2C2', '2C1', '268', '2C3'], s);
 var S268point = new Point2(['268', '2C2', '266'], s);
@@ -388,7 +388,7 @@ var S232point = new Point2(['232', '231'], s);
 var S2B6point = new Point2(['2B6', '233', '2B7', '2A5'], s);
 var S233point = new Point2(['233', '3B6'], s);
 var S2A5point = new Point2(['2A5', '2B6', '2STAIRS1', '228', '226', '2A4', '2A6'], s);
-var S2STAIRS1point = new Point2(['2STAIRS1', '2A5'], s);
+var S2STAIRS1point = new Point2(['2STAIRS1', '2A5', '3STAIRS1', 'STAIRS1'], s);
 var S228point = new Point2(['228', '2A5', '2A4'], s);
 var S226point = new Point2(['226', '2A5', '2A4'], s);
 var S2A4point = new Point2(['2A4', '2A5', '228', '226', '224', '2A3'], s);
@@ -439,7 +439,7 @@ var SB2point = new Point2(['B2', 'E1', 'A5', 'B1', 'B3'], s);
 var SA5point = new Point2(['A5', 'E1', 'B2', 'A4'], s);
 var SA4point = new Point2(['A4', 'A5', 'STAIRS3', '114', '113', 'A3'], s);
 var S114point = new Point2(['114', 'A4', 'A3'], s);
-var SSTAIRS3point = new Point2(['STAIRS3', 'A4'], s);
+var SSTAIRS3point = new Point2(['STAIRS3', 'A4', 'TSTAIRS3', '2STAIRS3'], s);
 var S113apoint = new Point2(['113a', 'A4', 'A3'], s);
 var SA3point = new Point2(['A3', 'A4', '114', '113a', '113b', 'A2'], s);
 var S113bpoint = new Point2(['113b', 'A3', 'A2'], s);
@@ -455,21 +455,21 @@ var S106apoint = new Point2(['106a', 'B4'], s);
 var SC1point = new Point2(['C1', 'B4', '106b', 'C2'], s);
 var S106bpoint = new Point2(['106b', 'C1'], s);
 var SC2point = new Point2(['C2', 'C1', 'STAIRS1', '105', '104b', 'C3'], s);
-var SSTAIRS1point = new Point2(['STAIRS1', 'C2'], s);
+var SSTAIRS1point = new Point2(['STAIRS1', 'C2', 'TSTAIRS1', 'STAIRS1'], s);
 var S105point = new Point2(['105', 'C2'], s);
 var S104bpoint = new Point2(['104b', 'C2', 'C3'], s);
 var SC3point = new Point2(['C3', 'C2', '104b', '104a', 'C5'], s);
 var S104apoint = new Point2(['104a', 'C3', 'C5'], s);
 var SC5point = new Point2(['C5', 'C3', '104a', '103', 'STAIRS2', 'C4'], s);
 var S103point = new Point2(['103', 'C5'], s);
-var SSTAIRS2point = new Point2(['STAIRS2', 'C5'], s);
+var SSTAIRS2point = new Point2(['STAIRS2', 'C5', 'TSTAIRS2'], s);
 var SC4point = new Point2(['C4', 'C5', '192b', 'B3'], s);
 var S192bpoint = new Point2(['192b', 'C4'], s);
 var SB3point = new Point2(['B3', 'C4', '192a', 'B2'], s);
 var S192apoint = new Point2(['192a', 'B3'], s);
 
 //-------------------------Floor T---------------------------------------------
-var STSTAIRS3point = new Point2(['TSTAIRS3', 'TA3'], s);
+var STSTAIRS3point = new Point2(['TSTAIRS3', 'TA3', 'STAIRS3'], s);
 var STA3point = new Point2(['TA3', 'TSTAIRS3', 'T4a', 'TA2'], s);
 var ST4apoint = new Point2(['T4a', 'TA3', 'TA2'], s);
 var STA2point = new Point2(['TA2', 'T4a', 'TA3', 'T22', 'TB1', 'TA1', 'T4b'], s);
@@ -497,12 +497,12 @@ var STB4point = new Point2(['TB4', 'T2', 'T13', 'T14'], s);
 var ST13point = new Point2(['T13', 'TB4', 'T2b'], s);
 var ST14point = new Point2(['T14', 'TB4', 'T2b'], s);
 var STC1point = new Point2(['TC1', 'TB3', 'T2b', 'TSTAIRS2', 'T5a', 'T5b', 'T6a', 'T6b', 'TSTAIRS1'], s);
-var STSTAIRS2point = new Point2(['TSTAIRS2', 'TC1', 'T5a'], s);
+var STSTAIRS2point = new Point2(['TSTAIRS2', 'TC1', 'T5a', 'STARIS2'], s);
 var ST5apoint = new Point2(['T5a', 'TSTAIRS2', 'TC1'], s);
 var ST5bpoint = new Point2(['T5b', 'TC1', 'TSTAIRS1'], s);
 var ST6apoint = new Point2(['T6a', 'TC1', 'TSTAIRS1'], s);
 var ST6bpoint = new Point2(['T6b', 'TC1', 'TSTAIRS1'], s);
-var STSTAIRS1point = new Point2(['TSTAIRS1', 'T6b', 'T6a', 'T5b', 'TC1'], s);
+var STSTAIRS1point = new Point2(['TSTAIRS1', 'T6b', 'T6a', 'T5b', 'TC1', 'STAIRS1'], s);
 
 
 var points3 = [
