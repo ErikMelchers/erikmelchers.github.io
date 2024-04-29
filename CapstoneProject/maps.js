@@ -66,10 +66,10 @@ function setup() {
             'https://i.postimg.cc/qRrJxcMV/Kogod-Floor1-Labelled.png',
             'https://i.postimg.cc/x8x9QWGn/Kogod-Floor2-Labelled.png',
             'https://i.postimg.cc/FFDr0JM8/Kogod-Terrace-Labelled.png',
-            'https://i.postimg.cc/43xkf8d3/SPATERRACELABELLED.png',
             'https://i.postimg.cc/PqVGPmpQ/SPAFLOOR1-LABELLED.png',
             'https://i.postimg.cc/638kRyCJ/SPAFLOOR2-LABELLED.png',
             'https://i.postimg.cc/Px0BMTML/SPAFLOOR3-LABELLED.png',
+            'https://i.postimg.cc/43xkf8d3/SPATERRACELABELLED.png',
         ]
 
         const roomDiv = document.getElementById('roomNumbers');
@@ -107,7 +107,7 @@ function setup() {
 
 
         var floorsImg = []
-
+        console.log(buildingName);
         for (let i = 0; i < arrayLink.length; i++) {
             if(arrayLink[i].includes(buildingName)){
                 const link = arrayLink[i]
@@ -178,7 +178,7 @@ function setup() {
     if (amount <= 1){
         // console.log("load")
         createCanvas(width, y);
-        bg = loadImage('https://i.postimg.cc/qRrJxcMV/Kogod-Floor1-Labelled.png');
+        bg = loadImage(floorsImg[0]);
     }
     else if (amount == 2){
         console.log("load2")
