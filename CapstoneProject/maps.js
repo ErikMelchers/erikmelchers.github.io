@@ -1,10 +1,4 @@
-var arrayLink = [
-    ['Don Myers','https://i.postimg.cc/TYnXCLFT/Don-Myers-First-Floor-Rooms-Labelled.png'],
-    ['Don Myers','https://i.postimg.cc/L8RF74FL/Don-Myers-Second-Floor-And-Points.png'],
-    ['Kogod', 'https://i.postimg.cc/qRrJxcMV/Kogod-Floor1-Labelled.png'],
-    ['Kogod', 'https://i.postimg.cc/x8x9QWGn/Kogod-Floor2-Labelled.png'],
-    ['Kogod', 'https://i.postimg.cc/FFDr0JM8/Kogod-Terrace-Labelled.png'],
-]
+
 var path
 // window.onload = function (){
     
@@ -66,6 +60,13 @@ function howManyStairs(){
 
 function setup() {
         // var path
+        var arrayLink = [
+            ['Don Myers','https://i.postimg.cc/TYnXCLFT/Don-Myers-First-Floor-Rooms-Labelled.png'],
+            ['Don Myers','https://i.postimg.cc/L8RF74FL/Don-Myers-Second-Floor-And-Points.png'],
+            ['Kogod', 'https://i.postimg.cc/qRrJxcMV/Kogod-Floor1-Labelled.png'],
+            ['Kogod', 'https://i.postimg.cc/x8x9QWGn/Kogod-Floor2-Labelled.png'],
+            ['Kogod', 'https://i.postimg.cc/FFDr0JM8/Kogod-Terrace-Labelled.png'],
+        ]
 
         const roomDiv = document.getElementById('roomNumbers');
         var params = new URLSearchParams(window.location.search);
@@ -98,6 +99,16 @@ function setup() {
         path = shortestPath
         console.log(shortestPath)
         roomDiv.innerHTML = destination + buildingName
+
+
+
+        var floorsImg = []
+
+        for (let i = 0; i < arrayLink.length; i++) {
+            if(arrayLink[i][0] === buildingName){
+                floorsImg.push(arrayLink[i][0])
+            }
+        }
 //------------------------------------Work For Don Myers------------------------------------
     // var amount = 1
     // for (let i = 0; i < path.length - 1; i++) {
@@ -157,11 +168,23 @@ function setup() {
         createCanvas(1920, y);
         topImage = createGraphics(1920, 1080);
         bottomImage = createGraphics(1920, 1080);
-        bg = loadImage('https://i.postimg.cc/qRrJxcMV/Kogod-Floor1-Labelled.png');
-        bg2= loadImage('https://i.postimg.cc/x8x9QWGn/Kogod-Floor2-Labelled.png')
+        bg = loadImage(floorsImg[0]);
+        var TSTAIRSQ = false
+
+        for (let i = 0; i < path.length - 1; i++) {
+            if(path[i].includes("TSTAIRS")){
+                TSTAIRSQ = true
+            }
+        }
+        if (TSTAIRSQ){
+            bg2 = loadImage(floorsImg[floorsImg.length - 1])
+        }
+        else{
+            bg2 = loadImage(floorsImg[1])
+        }
     }
     else if (amount == 3){
-
+        
     }
     
 }
@@ -179,7 +202,7 @@ function draw(){
         topImage.background(bg)
         bottomImage.background(bg2)
         image(topImage,0,0);
-        image(bottomImage,0,648);
+        image(bottomImage,0,1080);
     }else{
         background(bg)
     }
