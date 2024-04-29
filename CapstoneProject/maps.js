@@ -61,11 +61,11 @@ function howManyStairs(){
 function setup() {
         // var path
         var arrayLink = [
-            ['Don Myers','https://i.postimg.cc/TYnXCLFT/Don-Myers-First-Floor-Rooms-Labelled.png'],
-            ['Don Myers','https://i.postimg.cc/L8RF74FL/Don-Myers-Second-Floor-And-Points.png'],
-            ['Kogod', 'https://i.postimg.cc/qRrJxcMV/Kogod-Floor1-Labelled.png'],
-            ['Kogod', 'https://i.postimg.cc/x8x9QWGn/Kogod-Floor2-Labelled.png'],
-            ['Kogod', 'https://i.postimg.cc/FFDr0JM8/Kogod-Terrace-Labelled.png'],
+            'https://i.postimg.cc/TYnXCLFT/Don-Myers-First-Floor-Rooms-Labelled.png',
+            'https://i.postimg.cc/L8RF74FL/Don-Myers-Second-Floor-And-Points.png',
+            'https://i.postimg.cc/qRrJxcMV/Kogod-Floor1-Labelled.png',
+            'https://i.postimg.cc/x8x9QWGn/Kogod-Floor2-Labelled.png',
+            'https://i.postimg.cc/FFDr0JM8/Kogod-Terrace-Labelled.png',
         ]
 
         const roomDiv = document.getElementById('roomNumbers');
@@ -105,10 +105,14 @@ function setup() {
         var floorsImg = []
 
         for (let i = 0; i < arrayLink.length; i++) {
-            if(arrayLink[i][0] === buildingName){
-                floorsImg.push(arrayLink[i][0])
+            if(arrayLink[i].includes(buildingName)){
+                const link = arrayLink[i]
+                console.log(link)
+                floorsImg.push(link)
             }
         }
+
+        console.log(floorsImg)
 //------------------------------------Work For Don Myers------------------------------------
     // var amount = 1
     // for (let i = 0; i < path.length - 1; i++) {
