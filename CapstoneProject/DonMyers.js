@@ -506,5 +506,5 @@ var points = [
   R213apoint, R213bpoint, R262point , twoSTAIRSpoint,twoSTAIRS2point,twoSTAIRS3point,twoSTAIRS4point,
 ]
 
-var build1 = new Building('Don Myers', points)
+var build1 = new Building('Don-Myers', points)
 buildings.push(build1)

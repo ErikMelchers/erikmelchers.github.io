@@ -62,7 +62,7 @@ function setup() {
         // var path
         var arrayLink = [
             'https://i.postimg.cc/TYnXCLFT/Don-Myers-First-Floor-Rooms-Labelled.png',
-            'https://i.postimg.cc/L8RF74FL/Don-Myers-Second-Floor-And-Points.png',
+            'https://i.postimg.cc/5yXf4fxp/Don-Myers-Second-Floor.png',
             'https://i.postimg.cc/qRrJxcMV/Kogod-Floor1-Labelled.png',
             'https://i.postimg.cc/x8x9QWGn/Kogod-Floor2-Labelled.png',
             'https://i.postimg.cc/FFDr0JM8/Kogod-Terrace-Labelled.png',
@@ -210,14 +210,28 @@ function draw(){
     }else{
         background(bg)
     }
-    
+    var params = new URLSearchParams(window.location.search);
+    const buildingName = JSON.parse(params.get("building"));
 
     stroke(50,50,50)
     strokeWeight(5)
     var offset = 0;
     for (let i = 0; i < path.length - 1; i++) {
-        let point1 = k[path[i]];
-        let point2 = k[path[i + 1]];
+        console.log(buildingName)
+        var point1
+        var point2
+
+        if (buildingName === "Don-Myers"){
+            point1 = d[path[i]];
+            point2 = d[path[i + 1]];
+        }else if(buildingName === "Kogod"){
+            point1 = k[path[i]];
+            point2 = k[path[i + 1]]; 
+        }else if(buildingName === "SPA"){
+            point1 = s[path[i]];
+            point2 = s[path[i + 1]];
+        }
+        
         if(path[i].includes("STAIRS") && path[i+1].includes("STAIRS")){
              console.log(i)  
              offset += 1080 // this was another change from don myers to kogod 648 -> 1080
