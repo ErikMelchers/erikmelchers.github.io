@@ -541,4 +541,4 @@ var points3 = [
 
 
 var build3 = new Building('SPA', points3)
-builddings.push(build3)
+buildings.push(build3)
