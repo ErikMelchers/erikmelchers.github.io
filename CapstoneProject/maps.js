@@ -98,8 +98,41 @@ function setup() {
         path = shortestPath
         console.log(shortestPath)
         roomDiv.innerHTML = destination + buildingName
+//------------------------------------Work For Don Myers------------------------------------
+    // var amount = 1
+    // for (let i = 0; i < path.length - 1; i++) {
+    //     if(path[i].includes("STAIRS") && path[i+1].includes("STAIRS")){
+    //         amount += 1
+    //     }
+    // }
+    // console.log(amount)
+    // var y = 1
+    // if (amount >= 1){
+    //     y = (648 * amount)
+    // }
+    // else{
+    //     y = 648
+    // }
+    // console.log("the y is: " + y)
+    // if (amount <= 1){
+    //     // console.log("load")
+    //     createCanvas(1152, y);
+    //     bg = loadImage('https://i.postimg.cc/TYnXCLFT/Don-Myers-First-Floor-Rooms-Labelled.png');
+    // }
+    // else if (amount == 2){
+    //     console.log("load2")
+    //     createCanvas(1152,y);
+    //     topImage = createGraphics(1152,648);
+    //     bottomImage = createGraphics(1152,648);
+    //     bg = loadImage('https://i.postimg.cc/TYnXCLFT/Don-Myers-First-Floor-Rooms-Labelled.png');
+    //     bg2= loadImage('https://i.postimg.cc/5yXf4fxp/Don-Myers-Second-Floor.png')
+    // }
+    // else if (amount == 3){
 
-    var amount = 1
+    // }
+   //----------------------------------------------------------------------------------------
+   
+   var amount = 1
     for (let i = 0; i < path.length - 1; i++) {
         if(path[i].includes("STAIRS") && path[i+1].includes("STAIRS")){
             amount += 1
@@ -108,42 +141,41 @@ function setup() {
     console.log(amount)
     var y = 1
     if (amount >= 1){
-        y = (648 * amount)
+        y = (1080 * amount)
     }
     else{
-        y = 648
+        y = 1080
     }
     console.log("the y is: " + y)
     if (amount <= 1){
         // console.log("load")
-        createCanvas(1152, y);
-        bg = loadImage('https://i.postimg.cc/TYnXCLFT/Don-Myers-First-Floor-Rooms-Labelled.png');
+        createCanvas(1920, y);
+        bg = loadImage('https://i.postimg.cc/qRrJxcMV/Kogod-Floor1-Labelled.png');
     }
     else if (amount == 2){
         console.log("load2")
-        createCanvas(1152,y);
-        topImage = createGraphics(1152,648);
-        bottomImage = createGraphics(1152,648);
-        bg = loadImage('https://i.postimg.cc/TYnXCLFT/Don-Myers-First-Floor-Rooms-Labelled.png');
-        bg2= loadImage('https://i.postimg.cc/5yXf4fxp/Don-Myers-Second-Floor.png')
+        createCanvas(1920, y);
+        topImage = createGraphics(1920, 1080);
+        bottomImage = createGraphics(1920, 1080);
+        bg = loadImage('https://i.postimg.cc/qRrJxcMV/Kogod-Floor1-Labelled.png');
+        bg2= loadImage('https://i.postimg.cc/x8x9QWGn/Kogod-Floor2-Labelled.png')
     }
     else if (amount == 3){
 
     }
     
-    
 }
 
 
 function draw(){
-    var amount = 0
+    var amountFloors = 0
     for (let i = 0; i < path.length - 1; i++) {
         if(path[i].includes("STAIRS") && path[i+1].includes("STAIRS")){
-            amount += 1
+            amountFloors += 1
         }
     }
 
-    if (amount  == 1){
+    if (amountFloors  == 1){
         topImage.background(bg)
         bottomImage.background(bg2)
         image(topImage,0,0);
@@ -157,11 +189,11 @@ function draw(){
     strokeWeight(5)
     var offset = 0;
     for (let i = 0; i < path.length - 1; i++) {
-        let point1 = d[path[i]];
-        let point2 = d[path[i + 1]];
+        let point1 = k[path[i]];
+        let point2 = k[path[i + 1]];
         if(path[i].includes("STAIRS") && path[i+1].includes("STAIRS")){
              console.log(i)  
-             offset += 648
+             offset += 1080 // this was another change from don myers to kogod 648 -> 1080
         } else if(point1 && point2)
         {
             line(point1[0], point1[1] + offset, point2[0], point2[1]+offset);
