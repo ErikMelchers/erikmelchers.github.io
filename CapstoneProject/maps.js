@@ -147,6 +147,15 @@ function setup() {
     // }
    //----------------------------------------------------------------------------------------
    
+    var width = 1920
+    var height = 1080
+
+    if (buildingName === 'Don-Myers'){
+        width = 1152
+        height = 648
+    }
+
+
    var amount = 1
     for (let i = 0; i < path.length - 1; i++) {
         if(path[i].includes("STAIRS") && path[i+1].includes("STAIRS")){
@@ -156,22 +165,23 @@ function setup() {
     console.log(amount)
     var y = 1
     if (amount >= 1){
-        y = (1080 * amount)
+        y = (height * amount)
     }
     else{
-        y = 1080
+        y = height
     }
     console.log("the y is: " + y)
     if (amount <= 1){
         // console.log("load")
-        createCanvas(1920, y);
+        createCanvas(width, y);
         bg = loadImage('https://i.postimg.cc/qRrJxcMV/Kogod-Floor1-Labelled.png');
     }
     else if (amount == 2){
         console.log("load2")
-        createCanvas(1920, y);
-        topImage = createGraphics(1920, 1080);
-        bottomImage = createGraphics(1920, 1080);
+        createCanvas(width, y);
+        
+        topImage = createGraphics(width, height);
+        bottomImage = createGraphics(width, height);
         bg = loadImage(floorsImg[0]);
         var TSTAIRSQ = false
 
@@ -206,7 +216,7 @@ function draw(){
         topImage.background(bg)
         bottomImage.background(bg2)
         image(topImage,0,0);
-        image(bottomImage,0,1080);
+        image(bottomImage,0,height);
     }else{
         background(bg)
     }
@@ -234,7 +244,7 @@ function draw(){
         
         if(path[i].includes("STAIRS") && path[i+1].includes("STAIRS")){
              console.log(i)  
-             offset += 1080 // this was another change from don myers to kogod 648 -> 1080
+             offset += height // this was another change from don myers to kogod 648 -> 1080
         } else if(point1 && point2)
         {
             line(point1[0], point1[1] + offset, point2[0], point2[1]+offset);
