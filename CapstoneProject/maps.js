@@ -66,6 +66,10 @@ function setup() {
             'https://i.postimg.cc/qRrJxcMV/Kogod-Floor1-Labelled.png',
             'https://i.postimg.cc/x8x9QWGn/Kogod-Floor2-Labelled.png',
             'https://i.postimg.cc/FFDr0JM8/Kogod-Terrace-Labelled.png',
+            'https://i.postimg.cc/43xkf8d3/SPATERRACELABELLED.png',
+            'https://i.postimg.cc/PqVGPmpQ/SPAFLOOR1-LABELLED.png',
+            'https://i.postimg.cc/638kRyCJ/SPAFLOOR2-LABELLED.png',
+            'https://i.postimg.cc/Px0BMTML/SPAFLOOR3-LABELLED.png',
         ]
 
         const roomDiv = document.getElementById('roomNumbers');
@@ -179,7 +183,6 @@ function setup() {
     else if (amount == 2){
         console.log("load2")
         createCanvas(width, y);
-        
         topImage = createGraphics(width, height);
         bottomImage = createGraphics(width, height);
         bg = loadImage(floorsImg[0]);
@@ -198,7 +201,13 @@ function setup() {
         }
     }
     else if (amount == 3){
-        
+        createCanvas(width, y);
+        topImage = createGraphics(width, height);
+        bottomImage = createGraphics(width, height);
+        lastImage = createGraphics(width, height);
+        bg = loadImage(floorsImg[0]);
+        bg2 = loadImage(floorsImg[1]);
+        bg3 = loadImage(floorsImg[2]);
     }
     
 }
@@ -229,7 +238,14 @@ function draw(){
         bottomImage.background(bg2)
         image(topImage,0,0);
         image(bottomImage,0,height);
-    }else{
+    }else if(amountFloors == 2){
+        topImage.background(bg)
+        bottomImage.background(bg2)
+        lastImage.background(bg3)
+        image(topImage,0,0);
+        image(bottomImage,0,height);
+        image(lastImage, 0, height*2);
+    } else {
         background(bg)
     }
     
