@@ -206,6 +206,18 @@ function setup() {
 
 function draw(){
     var amountFloors = 0
+
+    var params = new URLSearchParams(window.location.search);
+    const buildingName = JSON.parse(params.get("building"));
+
+    var width = 1920
+    var height = 1080
+
+    if (buildingName === 'Don-Myers'){
+        width = 1152
+        height = 648
+    }
+
     for (let i = 0; i < path.length - 1; i++) {
         if(path[i].includes("STAIRS") && path[i+1].includes("STAIRS")){
             amountFloors += 1
@@ -220,14 +232,13 @@ function draw(){
     }else{
         background(bg)
     }
-    var params = new URLSearchParams(window.location.search);
-    const buildingName = JSON.parse(params.get("building"));
+    
 
     stroke(50,50,50)
     strokeWeight(5)
     var offset = 0;
     for (let i = 0; i < path.length - 1; i++) {
-        console.log(buildingName)
+        // console.log(buildingName)
         var point1
         var point2
 
