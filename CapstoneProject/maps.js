@@ -1,6 +1,9 @@
 var arrayLink = [
     ['Don Myers','https://i.postimg.cc/TYnXCLFT/Don-Myers-First-Floor-Rooms-Labelled.png'],
-    ['Don Myers','https://i.postimg.cc/L8RF74FL/Don-Myers-Second-Floor-And-Points.png']
+    ['Don Myers','https://i.postimg.cc/L8RF74FL/Don-Myers-Second-Floor-And-Points.png'],
+    ['Kogod', 'https://i.postimg.cc/qRrJxcMV/Kogod-Floor1-Labelled.png'],
+    ['Kogod', 'https://i.postimg.cc/x8x9QWGn/Kogod-Floor2-Labelled.png'],
+    ['Kogod', 'https://i.postimg.cc/FFDr0JM8/Kogod-Terrace-Labelled.png'],
 ]
 var path
 // window.onload = function (){
@@ -59,10 +62,11 @@ function howManyStairs(){
     return amount
 }
 
-var mult = howManyStairs()
+// var mult = howManyStairs()
 
 function setup() {
-    
+        // var path
+
         const roomDiv = document.getElementById('roomNumbers');
         var params = new URLSearchParams(window.location.search);
     
@@ -95,25 +99,36 @@ function setup() {
         console.log(shortestPath)
         roomDiv.innerHTML = destination + buildingName
 
-    var amount = 0
+    var amount = 1
     for (let i = 0; i < path.length - 1; i++) {
-        if(path[i].includes("STAIRS")){
+        if(path[i].includes("STAIRS") && path[i+1].includes("STAIRS")){
             amount += 1
         }
     }
     console.log(amount)
-
-    var y = (648 * amount)
-    if (amount == 1){
+    var y = 1
+    if (amount >= 1){
+        y = (648 * amount)
+    }
+    else{
+        y = 648
+    }
+    console.log("the y is: " + y)
+    if (amount <= 1){
+        // console.log("load")
         createCanvas(1152, y);
         bg = loadImage('https://i.postimg.cc/TYnXCLFT/Don-Myers-First-Floor-Rooms-Labelled.png');
     }
     else if (amount == 2){
+        console.log("load2")
         createCanvas(1152,y);
         topImage = createGraphics(1152,648);
         bottomImage = createGraphics(1152,648);
         bg = loadImage('https://i.postimg.cc/TYnXCLFT/Don-Myers-First-Floor-Rooms-Labelled.png');
-        bg2= loadImage('https://i.postimg.cc/L8RF74FL/Don-Myers-Second-Floor-And-Points.png')
+        bg2= loadImage('https://i.postimg.cc/5yXf4fxp/Don-Myers-Second-Floor.png')
+    }
+    else if (amount == 3){
+
     }
     
     
@@ -121,10 +136,22 @@ function setup() {
 
 
 function draw(){
-    topImage.background(bg)
-    bottomImage.background(bg2)
-    image(topImage,0,0);
-    image(bottomImage,0,648);
+    var amount = 0
+    for (let i = 0; i < path.length - 1; i++) {
+        if(path[i].includes("STAIRS") && path[i+1].includes("STAIRS")){
+            amount += 1
+        }
+    }
+
+    if (amount  == 1){
+        topImage.background(bg)
+        bottomImage.background(bg2)
+        image(topImage,0,0);
+        image(bottomImage,0,648);
+    }else{
+        background(bg)
+    }
+    
 
     stroke(50,50,50)
     strokeWeight(5)
