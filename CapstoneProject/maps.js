@@ -216,8 +216,8 @@ function draw(){
     strokeWeight(5)
     var offset = 0;
     for (let i = 0; i < path.length - 1; i++) {
-        let point1 = k[path[i]];
-        let point2 = k[path[i + 1]];
+        let point1 = d[path[i]];
+        let point2 = d[path[i + 1]];
         if(path[i].includes("STAIRS") && path[i+1].includes("STAIRS")){
              console.log(i)  
              offset += 1080 // this was another change from don myers to kogod 648 -> 1080
