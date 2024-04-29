@@ -283,6 +283,7 @@ var SCA6point = new Point2(['CA6', '307', '302', '3STAIRS1', '300a', '3A5'], s);
 var S300apoint = new Point2(['300a', '3A6', '3A5'], s);
 var S3STAIRS1point = new Point2(['3STAIRS1', '3A6', '2STAIRS1'], s);
 var S3A5point = new Point2(['3A5', '300a', '3A6', '3A2'], s);
+var S3A6point = new Point2(['3A6', '3C1', '302a', '307', '300a', '3A5', '3STAIRS1'], s);
 var S3A2point = new Point2(['3A2', '3A5', '3A1', '345', '34', '3A3'], s);
 var S3A1point = new Point2(['3A1', '3A2', '349', '350', '347', '346'], s);
 var S349point = new Point2(['349', '3A1'], s);
@@ -535,7 +536,7 @@ var points3 = [
   STA1point, ST3apoint, STSTAIRS4point, ST3bpoint, ST22point, STB1point, ST23point, STB2point,
   STB3point, ST1apoint, ST1bpoint, STB5point, STB6point, ST11point, ST10point, ST9point,
   ST8point, ST7point, ST2apoint, STB4point, ST13point, ST14point, STC1point, STSTAIRS2point,
-  ST5apoint, ST5bpoint, ST6apoint, ST6bpoint, STSTAIRS1point
+  ST5apoint, ST5bpoint, ST6apoint, ST6bpoint, STSTAIRS1point, S3A6point
 ]
 
 
