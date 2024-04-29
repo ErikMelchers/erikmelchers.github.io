@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link rel="stylesheet" href="Capstone.css">
+</head>
+
+<h1>American University Map</h1>
+
+
+<div class="header"> <!--<img src="AU_Logo.png" alt="AU Logo">--> </div>
+<div class="header2"></div>
+<div class="header3"></div>
+
+<div class = "AULogo"> <img src="AU_Logo.png" alt="AU Logo"></div>
+
+<button class="button" onclick="clic()">
+Click once Location Tracking is Enabled, else default location will be set.
+</button>
+<div class="logo"><img src="Pensive_Bread.png" alt="Pensive_Bread"></div>
+<script>
+    window.origin;
+
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const pos = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude,
+          };
+
+          window.origin = pos;
+        },
+        () => {
+            window.origin = {lat: 38.9380, lng: -77.0889};
+    });
+        }
+    else {
+      // Browser doesn't support Geolocation
+      window.origin = {lat: 38.9380, lng: -77.0889};
+    }
+
+
+
+    console.log(origin)
+
+    async function clic(){
+    var params = new URLSearchParams();
+    params.append("origin", JSON.stringify(origin));
+    console.log(origin)
+    var url = "mapexample.html?" +params.toString();
+    location.href = url;
+    };
+
+</script>
+</html>
