@@ -1627,6 +1627,8 @@
           console.log(roomNum)
           var params2 = new URLSearchParams();
           params2.append("destination", JSON.stringify(roomNum));
+          params2.append("building", JSON.stringify("SPA"));
+          params2.append("start", JSON.stringify("E2"));
           console.log(destinationToAdd);
           var url = "SPA.html?" +params2.toString();
           document.getElementById("inside-button").addEventListener('click', () => {
@@ -1654,6 +1656,8 @@
           console.log(roomNum)
           var params2 = new URLSearchParams();
           params2.append("destination", JSON.stringify(roomNum));
+          params2.append("building", JSON.stringify("Kogod"));
+          params2.append("start", JSON.stringify("E2"));
           console.log(destinationToAdd);
           var url = "Kogod.html?" +params2.toString();
           document.getElementById("inside-button").addEventListener('click', () => {

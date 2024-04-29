@@ -19,7 +19,7 @@ window.onload = function (){
 
     //E1
     const startPointName = JSON.parse(params.get("start"))
-    
+
     console.log(startPointName)
     console.log(endPointName)
 
@@ -30,6 +30,9 @@ window.onload = function (){
     console.log(startPoint)
     console.log(endPoint)
 
+    const shortestPath = dijkstra(startPoint,endPoint,whatBuilding)
+
+    console.log(shortestPath)
     roomDiv.innerHTML = destination + buildingName
 }
 

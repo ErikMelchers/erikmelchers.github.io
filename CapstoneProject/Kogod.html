@@ -4,12 +4,11 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>FloorPlan1</title>
-		<a href="donsecond.html">
-		<script src="libraries/p5.js"></script>
 		<!-- <script src="libraries/p5.sound.js"></script> -->
-		<script src="donfirst.js"></script>
-        <div>KOGOD</div>
-        <div id="roomNumbers"></div>
+		<script src="dijkstra.js"></script>
+		<script src="Kogod.js"></script>
+        <script src="maps.js"></script>
+
 		<style>
 			body {
 				margin: 0;
@@ -20,5 +19,9 @@
 			}
 		</style>
 	</head>
-	<body></body>
+	<body>
+        <div>Kogod</div>
+        <div id="roomNumbers">Room Numbers</div>
+        <button onclick="getRoomNumber()">Room</button>
+    </body>
 </html>
