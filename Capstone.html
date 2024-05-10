@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Capstone.css">
+</head>
+<div class = "big-container">
+<div class = "fixed-modal" id = "top-modal"> 
+  <p>Eagle Maps</p>
+  <div class = "modal-clawed"> </div>
+  <div class = "modal-au-logo"> </div>
+</div>
+<div class="small-container">
+  <button class="button" onclick="clic()">
+    Click once Location Tracking is Enabled.
+    </button>
+</div>
+</div>
+<script>
+    var origin = {lat: 38.980, lng: -77.0899};
+
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const pos = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude,
+          };
+
+          window.origin = pos;
+          origin = pos;
+        },
+        () => {
+            window.origin = {lat: 38.9380, lng: -77.0889};
+    });
+        }
+    else {
+      // Browser doesn't support Geolocation
+      window.origin = {lat: 38.9380, lng: -77.0889};
+    }
+
+
+
+    console.log(origin)
+
+    async function clic(){
+    var params = new URLSearchParams();
+    params.append("origin", JSON.stringify(origin));
+    console.log(origin)
+    var url = "mapexample.html?" +params.toString();
+    location.href = url;
+    };
+
+</script>
+</html>
